@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/seven-segment');
+
+:root {
+    --ink-black:      #0d1b2a;
+    --prussian-blue:  #1b263b;
+    --dusk-blue:      #415a77;
+    --lavender-grey:  #778da9;
+    --alabaster-grey: #e0e1dd;
+}
+
+/* drop animation */
+@keyframes drop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* class activates the drop animation */
+.piece-drop {
+    animation: drop 0.25s ease-out;
+}
+
+body, input, select {
+    color: black;  
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+}
+
+button {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: var(--dusk-blue);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: var(--prussian-blue);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background: var(--ink-black);
+    transform: translateY(0);
+}
+
+/* container (from Bootstrap) */
+.container {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+.flex-container {
+    display: flex;
+    width: 100%;
+}
+
+.info-section {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.info-section img {
+    width: 100%;
+}
+
+.playing-text {
+    font-weight: 300;
+    margin-top: 1rem;
+    margin-bottom: .2rem;
+}
+
+#current-piece {
+    margin: 2rem 0;
+}
+
+#current-name {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.finish-button-container {
+    text-align: center;
+}
+
+#finish-button {
+    padding: 8px 16px;
+}
+
+.board-section {
+    flex: 1;                 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+/* "sentinel" section, so the board is centered */
+.right-sentinel {
+    width: 200px;
+    flex-shrink: 1;
+}
+
+#board thead::after {
+    content: "";
+    display: block;
+    height: .5rem;
+}
+
+#board {
+    text-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#board tbody td {
+    border: 2px solid var(--lavender-grey);
+}
+
+#board tbody td.hover-col {
+    background-color: var(--alabaster-grey) !important;
+}
+
+#board tbody {
+    border: 4px solid var(--ink-black);
+}
+
+#board thead td,
+#board thead th {
+    border: none;
+}
+
+#board td {
+    height: 60px;
+    width: 60px;
+    min-width: 60px;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+#board tbody tr:first-child td {
+  border-top: none;
+}
+#board tbody tr:last-child td {
+  border-bottom: none;
+}
+#board tbody td:first-child {
+  border-left: none;
+}
+#board tbody td:last-child {
+  border-right: none;
+}
+
+#board button {
+    height: 90%;
+    width: 90%;
+    font-size: 20px;
+}
+
+#board img {
+    display: block;
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    border: none;
+}
+
+.title h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--ink-black);
+}
+
+.title h1 span {
+    color: #415A77;
+}
+
+#scoreboard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 24px;
+}
+
+#player1-name,
+#player2-name {
+    flex: 1;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+#player1-name {
+    text-align: right;
+    padding-right: 50px;
+}
+
+#player2-name {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.center-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+    font-family: 'Seven Segment', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    background: var(--prussian-blue);
+    color: var(--alabaster-grey);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.center-score span {
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+    width: 1ch;
+    text-align: center;
+}
+
+#settings {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    width: 100px;
+}
+
+.form-row input,
+.form-row select {
+    flex: 1;
+    padding: 5px 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-row button {
+    margin-left: 100px;
+    padding: 8px 16px;
+}
+
+hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--lavender-grey);
+}

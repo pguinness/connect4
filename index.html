@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connect 4</title>
+        <script src="game.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+        <div class="title">
+            <h1>Connect <span>4</span></h1>
+        </div>
+        
+        <div id="settings" class="container">
+            <h2>Settings <i class="bi bi-gear-wide-connected"></i></h2>
+
+            <div class="form-row">
+                <label for="p1">Player 1:</label>
+                <input type="text" name="p1" id="p1-input-name" placeholder="A">
+            </div>
+
+            <div class="form-row">
+                <label for="p2">Player 2:</label>
+                <input type="text" name="p2" id="p2-input-name" placeholder="B">
+            </div>
+
+            <div class="form-row">
+                <label for="theme">Theme:</label>
+                <select id="theme-select" onchange="updatePlaceholders()">
+                    <option value="classic">Classic</option>
+                    <option value="cars">Cars 🚗</option>
+                    <option value="stalker">S.T.A.L.K.E.R. ☢️</option>
+                    <option value="poker">Poker ♠️</option>
+                    <option value="football">Football ⚽</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <button onclick="submitForm()">Play</button>
+            </div>
+        </div>
+
+        <div id="game" class="container">
+            <div id="scoreboard">
+                <span id="player1-name" class="player-name"></span>
+
+                <div class="center-score">
+                    <span id="player1-score"></span>
+                    <span>-</span>
+                    <span id="player2-score"></span>
+                </div>
+
+                <span id="player2-name" class="player-name"></span>
+            </div>
+
+            <hr>
+
+            <div class="flex-container">
+                <div class="info-section">
+                    <div class="playing-text">Playing:</div>
+                    <div id="current-name"></div>
+                    <img id="current-piece" alt="Piece">
+                    <div class="finish-button-container">
+                        <button type="button" id="finish-button">Finish game <i class="bi bi-box-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="board-section">
+                    <table id="board">
+                        <thead></thead> <!-- buttons -->
+                        <tbody></tbody> <!-- boxes -->
+                    </table>
+                </div>
+                <div class="right-sentinel"></div>
+            </div>
+        </div>
+    </body>
+</html>
