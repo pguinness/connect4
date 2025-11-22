@@ -1,7 +1,6 @@
 # Connect 4
 
 ## Considerations
-- I developed this project **individually**, rather than in pairs.
 - I used **only one Bootstrap class**, `.container`. I chose this class because it provides a responsive layout and maintains dynamic horizontal margins, which is ideal for clean and flexible page structure.
 
 ## Implementation Details
